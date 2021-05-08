@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".DikhirListFragment">
+    
+    <data>
+        <variable
+            name="dikhirData"
+            type="appinventor.ai_odukabdulbasit.models.Dikhir" />
+
+        <variable
+            name="dikhirViewModel"
+            type="appinventor.ai_odukabdulbasit.models.DikhirViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <EditText
+            android:id="@+id/editText"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:ems="10"
+            android:hint="Eklemek istediğiniz zikir adını yazınız"
+            android:text="@={dikhirData.dikhirName}"
+            android:textColor="#4D4A4A"
+            android:textSize="18dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/ekleButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="8dp"
+            android:background="@drawable/buttonback"
+            android:gravity="center"
+            android:onClick="@{() -> dikhirViewModel.addNewDikhirTodikhirList(dikhirData)}"
+            android:text="Yeni Zikir Ekle"
+            android:textAlignment="center"
+            android:textColor="#FFFEFE"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/editText" />
+
+        <ListView
+            android:id="@+id/zikirList"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="134dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ekleButton" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ReadDikhirFragment">
+
+    <data>
+        <variable
+            name="readDikhirViewModel"
+            type="appinventor.ai_odukabdulbasit.models.DikhirViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/zikirAdiTextView"
+            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="@{readDikhirViewModel.dikhirName}"
+            android:textAlignment="center"
+            android:textColor="#83ADB5"
+            android:textSize="35dp"
+            android:textStyle="bold"
+            tools:layout_editor_absoluteX="0dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zikirAdiTextView"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:layout_marginTop="27dp"
+            android:layout_marginBottom="522dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/silButton"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:background="@drawable/delete"
+                android:onClick="@{()-> readDikhirViewModel.silClicked()}"
+                android:text="Sil"
+                android:textColor="@color/butonText"
+                android:textSize="22dp" />
+
+            <Button
+                android:id="@+id/sifirlaButton"
+                android:layout_width="wrap_content"
+                android:layout_height="64dp"
+                android:layout_weight="1"
+                android:background="@drawable/refresh"
+                android:onClick="@{() -> readDikhirViewModel.sifirlaClicked()}"
+                android:text="Sifirla"
+                android:textColor="@color/butonText"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/UyariLayout"
+            app:layout_constraintBottom_toTopOf="@+id/textView2"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="invisible"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Zikir silinsin mi?"
+                android:textAlignment="center"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/evet"
+                    android:onClick="@{() -> readDikhirViewModel.evetClicked()}"
+                    android:text="Evet"
+                    android:textColor="@color/butonText"
+                    android:textSize="27sp" />
+
+                <Button
+                    android:id="@+id/button2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="70dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/hayir"
+                    android:onClick="@{() -> readDikhirViewModel.hayirClicked()}"
+                    android:text="Hayır"
+                    android:textColor="@color/butonText"
+                    android:textSize="27dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/textView2"
+            app:layout_constraintBottom_toTopOf="@+id/zikirSayisiTextView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="157dp"
+            android:layout_marginBottom="6dp"
+            android:text="Okunan sayısı"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/zikirSayisiTextView"
+            app:layout_constraintBottom_toTopOf="@+id/sayButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_marginBottom="16dp"
+            android:gravity="center"
+            android:text="@{String.valueOf(readDikhirViewModel.countNumber)}"
+            android:textAlignment="center"
+            android:textSize="80dp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/sayButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/zikirSayisiTextView"
+            android:layout_width="210dp"
+            android:layout_height="210dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/say"
+            android:onClick="@{() -> readDikhirViewModel.sayClicked()}"
+            android:text="SAY"
+            android:textColor="@color/butonText"
+            android:textSize="60dp"
+            android:textStyle="bold" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
